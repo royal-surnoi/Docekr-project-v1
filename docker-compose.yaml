@@ -16,11 +16,16 @@ services:
     - mongodb
     # networks: 
     #   - roboshop
+  user:
+    image: user:1 
+    depends_on: 
+    - mongodb
   # docker run -d --name=web --network=roboshop web:1
   web:
     image: web:1 
     depends_on: 
     - catalogue
+    - user 
     ports: 
     - "80:80"
     # networks: 
