@@ -13,7 +13,7 @@ services:
   catalogue:
     image: catalogue:1 
     depends_on: 
-    - mongobd
+    - mongodb
     # networks: 
     #   - roboshop
   # docker run -d --name=web --network=roboshop web:1
