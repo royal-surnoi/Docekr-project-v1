@@ -4,16 +4,16 @@ networks:
     name: roboshop
 services:
   # docker run -d --name=mongodb --network=roboshop mongodb:1
-  mongodb:
-    image: mongodb:1
+  mongobd:
+    image: mongobd:1
     # networks: 
     #   - roboshop
     
   # docker run -d --name=catalogue --network=roboshop catalogue:1
   catalogue:
-    image: catalogue:1
+    image: catalogue:1 
     depends_on: 
-      - mongodb
+      - mongobd
     # networks: 
     #   - roboshop
   # docker run -d --name=web --network=roboshop web:1
