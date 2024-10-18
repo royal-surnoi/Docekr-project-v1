@@ -8,6 +8,9 @@ services:
     image: mongodb:1
     # networks: 
     #   - roboshop
+  mysql:
+    image: mysql:1
+
   redis:
     image: redis
   # docker run -d --name=catalogue --network=roboshop catalogue:1
@@ -28,6 +31,10 @@ services:
     - catalogue
     - redis
   # docker run -d --name=web --network=roboshop web:1
+  shipping:
+    image: shipping:1
+    depends_on:
+    - mysql
   web:
     image: web:1 
     depends_on: 
