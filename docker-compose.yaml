@@ -40,7 +40,7 @@ services:
     depends_on:
     - mysql
   payment:
-    image: payment:v1
+    image: payment:1
     depends_on:
     - rabbitmq
     - user
