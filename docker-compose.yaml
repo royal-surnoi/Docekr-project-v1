@@ -8,7 +8,8 @@ services:
     image: mongodb:1
     # networks: 
     #   - roboshop
-    
+  redis:
+    image: redis
   # docker run -d --name=catalogue --network=roboshop catalogue:1
   catalogue:
     image: catalogue:1 
@@ -20,12 +21,19 @@ services:
     image: user:1 
     depends_on: 
     - mongodb
+    - redis
+  cart:
+    image: cart:1
+    depends_on:
+    - catalogue
+    - redis
   # docker run -d --name=web --network=roboshop web:1
   web:
     image: web:1 
     depends_on: 
     - catalogue
     - user 
+    - cart
     ports: 
     - "80:80"
     # networks: 
