@@ -5,11 +5,11 @@ networks:
 services:
   # docker run -d --name=mongodb --network=roboshop mongodb:1
   mongodb:
-    image: mongodb:1
+    image: mongodb:v1
     # networks: 
     #   - roboshop
   mysql:
-    image: mysql:1
+    image: mysql:v1
   rabbitmq:
     image: rabbitmq
     environment:
@@ -19,34 +19,34 @@ services:
     image: redis
   # docker run -d --name=catalogue --network=roboshop catalogue:1
   catalogue:
-    image: catalogue:1 
+    image: catalogue:v1 
     depends_on: 
     - mongodb
     # networks: 
     #   - roboshop
   user:
-    image: user:1 
+    image: user:v1 
     depends_on: 
     - mongodb
     - redis
   cart:
-    image: cart:1
+    image: cart:v1
     depends_on:
     - catalogue
     - redis
   # docker run -d --name=web --network=roboshop web:1
   shipping:
-    image: shipping:1
+    image: shipping:v1
     depends_on:
     - mysql
   payment:
-    image: payment:1
+    image: payment:v1
     depends_on:
     - rabbitmq
     - user
     - cart
   web:
-    image: web:1 
+    image: web:v1 
     depends_on: 
     - catalogue
     - user 
