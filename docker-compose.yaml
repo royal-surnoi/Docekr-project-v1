@@ -13,9 +13,9 @@ services:
     image: mongodb:v1
     container_name: mongodb
     volumes:
-      - source: mongodb
-        target: /data/db
-        type: volume
+    - source: mongodb
+      target: /data/db
+      type: volume
     # networks: 
     #   - roboshop
   mysql:
@@ -40,9 +40,9 @@ services:
     image: redis
     container_name: redis
     volumes:
-      - source: redis
-        target: /data
-        type: volume
+    - source: redis
+      target: /data
+      type: volume
 
   # docker run -d --name=catalogue --network=roboshop catalogue:1
   catalogue:
